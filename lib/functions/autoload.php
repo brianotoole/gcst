@@ -11,11 +11,40 @@
 
 namespace BrianOToole\Gcst;
 
-// Setup theme
-//include_once( CHILD_THEME_DIR . 'lib/theme-defaults.php' );
+/**
+ * Load non-admin files.
+ *
+ * @since 1.0.0
+ */
+function load_nonadmin_files() {
 
-// Add image upload and color select to WordPress Theme Customizer 
-//require_once( CHILD_THEME_DIR . '/lib/customize.php' );
+	$files = array(
+		'setup.php',
+		'functions/assets.php',
+		'functions/formatting.php',
+		'functions/markup.php',
+        'functions/settings.php',
+        'structure/header.php',
+        'structure/footer.php',
+        // and so on...
+	);
 
-// Include customizer css 
-//include_once( CHILD_THEME_DIR . '/lib/output.php' );
+	load_specified_files( $files );
+
+}
+
+/**
+ * Load specified files.
+ *
+ * @since 1.0.0
+ */
+function load_specified_files( array $files ) {
+
+	foreach( $files as $name ) {
+		include_once( CHILD_LIB_DIR . $name );
+	}
+
+}
+
+// call non admin
+load_nonadmin_files();
