@@ -1,6 +1,6 @@
 <?php
 /**
- * Init.php
+ * Header.php = header markup / structure
  *
  * @package     BrianOToole\GCST
  * @since       1.0.0

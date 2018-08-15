@@ -1,7 +1,7 @@
 <?php
 /**
  * 
- * Functions.php = Launching point to get us up and running
+ * Functions.php = Launching point to get up and running
  *
  * @package     BrianOToole\GCST
  * @since       1.0.0

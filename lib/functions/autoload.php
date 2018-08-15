@@ -1,6 +1,6 @@
 <?php
 /**
- * Genesis Child Starter Theme (Gcst)
+ * Autoload.php
  *
  * @package     BrianOToole\GCST
  * @since       1.0.0

@@ -1,6 +1,6 @@
 <?php
 /**
- * Init.php
+ * Markup.php
  *
  * @package     BrianOToole\GCST
  * @since       1.0.0

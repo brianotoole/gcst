@@ -1,6 +1,6 @@
 <?php
 /**
- * Init.php
+ * Sidebar.php = widgetized area markup/structure
  *
  * @package     BrianOToole\GCST
  * @since       1.0.0
