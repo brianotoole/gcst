@@ -12,26 +12,20 @@
 
 namespace BrianOToole\Gcst;
 
-// Start up
+// Start the child theme 
 include_once( 'lib/init.php' );
 
-// Setup
+// Start the Genesis framework
+include_once( get_template_directory() . 'lib/init.php' );
+
+// Load theme files
 include_once( 'lib/functions/autoload.php' );
 
 
-// Set Localization (do not remove) 
-load_child_theme_textdomain( 'genesis-sample', apply_filters( 'child_theme_textdomain', get_stylesheet_directory() . '/languages', 'genesis-sample' ) );
 
-// Add Image upload and Color select to WordPress Theme Customizer 
-require_once( get_stylesheet_directory() . '/lib/customize.php' );
-
-// Include Customizer CSS 
-include_once( get_stylesheet_directory() . '/lib/output.php' );
-
-// Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'GCST' );
-define( 'CHILD_THEME_URL', '#' );
-define( 'CHILD_THEME_VERSION', '1.0.0' );
+/**
+ * Assets
+ */
 
 // Enqueue Scripts and Styles
 add_action( 'wp_enqueue_scripts', 'genesis_sample_enqueue_scripts_styles' );
@@ -48,6 +42,14 @@ function genesis_sample_enqueue_scripts_styles() {
 	wp_localize_script( 'genesis-sample-responsive-menu', 'genesisSampleL10n', $output );
 
 }
+
+
+/**
+ * Setup
+ */
+
+// Set Localization (do not remove) 
+load_child_theme_textdomain( 'genesis-sample', apply_filters( 'child_theme_textdomain', get_stylesheet_directory() . '/languages', 'genesis-sample' ) );
 
 // Add HTML5 markup structure
 add_theme_support( 'html5', array( 'caption', 'comment-form', 'comment-list', 'gallery', 'search-form' ) );
@@ -82,7 +84,12 @@ add_image_size( 'featured-image', 720, 400, TRUE );
 // Rename primary and secondary navigation menus
 add_theme_support( 'genesis-menus' , array( 'primary' => __( 'After Header Menu', 'genesis-sample' ), 'secondary' => __( 'Footer Menu', 'genesis-sample' ) ) );
 
-//* Reposition the secondary navigation menu
+
+/**
+ * Structure/Menu
+ */
+
+// Reposition the secondary navigation menu
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
 
@@ -99,6 +106,11 @@ function genesis_sample_secondary_menu_args( $args ) {
 	return $args;
 
 }
+
+
+/**
+ * Structure/Comments
+ */
 
 // Modify size of the Gravatar in the author box
 add_filter( 'genesis_author_box_gravatar_size', 'genesis_sample_author_box_gravatar' );
